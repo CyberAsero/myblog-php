@@ -60,3 +60,14 @@ function isEmailExist($email) {
         return "Query Failed";
     }
 }
+
+function getUserDetailsByEmail($email){
+    global $con;
+    $query = "SELECT * FROM employee_data WHERE email = '$email'";
+    $result = mysqli_query($con,$query);
+    if ($result) {
+        return $result;
+    } else {
+        return false;
+    }
+}
